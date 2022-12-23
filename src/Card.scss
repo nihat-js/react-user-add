@@ -4,16 +4,36 @@
    background-color: #fff;
    figure{
       width: 100%;
-      img {
+      cursor: pointer;
+      position: relative;
+      img.main {
          width: 100%;
+      }
+      img.remove{
+         display: block;
+         position: absolute;
+         right : .5rem;
+         top : .5rem;
+         border-radius: 50%;
+         width: 32px;
+         height: 32px;
+      }
+      img.main:hover + img.remove {
+         display: block;
+      }
+      img.remove:hover{
+         background-color: #de1333;
+         border-radius: 15%;
+         width: 36px;
+         height: 36px;
       }
    }
    .info {
       padding: .5rem 1rem;
       .heading{
          font-size: 1.5rem;
-         line-height: 1.75rem;
-         margin-bottom: .5rem;
+         line-height: 2rem;
+         // margin-bottom: .5rem;
       }
       .subheading {
          font-size: 1.2rem;

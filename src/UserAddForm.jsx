@@ -6,14 +6,16 @@ export default function UserAddForm(props) {
 
    const inpName = React.useRef()
    const inpDesc = React.useRef()
-
+   const inpPP = React.useRef()
    const handleForm = (e) => {
       e.preventDefault()
+      const pp = URL.createObjectURL(inpPP.current.files[0]) 
+      console.log(pp)
       props.setPeople ([
          ...props.people , {
-            src : 'https://i.picsum.photos/id/53/200/200.jpg?hmac=NvXWlWpaKnDMb_phNyfwXppFuuNz0jK69wUnSFYQ6Ww',
             name : inpName.current.value,
-            desc : inpDesc.current.value
+            desc : inpDesc.current.value,
+            pp :  pp
          }
       ])
    }
@@ -27,6 +29,11 @@ export default function UserAddForm(props) {
       <div className="form-group">
          <span> Description  </span>
          <input  ref={inpDesc}  type="text" placeholder='About you' />
+      </div>
+      <div className="upload">
+         <input ref={inpPP} type="file"  id='file1'/>
+         <p className="text"> Upload profile picture  </p>
+         <label htmlFor="file1"> Upload  </label>
       </div>
       <div className="action">
       <button> Add</button>
